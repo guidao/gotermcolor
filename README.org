@@ -1,0 +1,32 @@
+
+* 安装
+go get -u github.com/guidao/gotermcolor
+* 用法
+#+BEGIN_SRC go
+  package main
+
+  import (
+    "fmt"
+    gtc "gotermcolor"
+  )
+
+  func main() {
+    h := gtc.NewColorString("hello world")
+    h.SetMode(gtc.DIM)
+    h.SetBackColor(gtc.BLACK)
+    h.SetForeColor(gtc.GREEN)
+    fmt.Println(h.ToString())
+
+    b := gtc.NewColorString("hua er")
+    // 重用属性设置
+    b.SetStrAttr(h.GetStrAttr())
+    b.SetForeColorRGB(255, 255, 255)
+    fmt.Println(b.ToString())
+
+    var strAttr gtc.StrAttr
+    strAttr.SetMode(gtc.UNDER_LINE)
+    strAttr.SetForeColor(gtc.RED)
+    fmt.Println(gtc.NewColorString("hhhhhhhhh").SetStrAttr(strAttr).ToString())
+  }
+
+#+END_SRC

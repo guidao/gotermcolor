@@ -97,6 +97,7 @@ func (this *ColorString) GetStrAttr() StrAttr {
 	return this.StrAttr
 }
 
-func (this *ColorString) SetStrAttr(s StrAttr) {
+func (this *ColorString) SetStrAttr(s StrAttr) ColorString {
 	this.StrAttr = s
+	return *this
 }
