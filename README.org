@@ -12,14 +12,18 @@ go get -u github.com/guidao/gotermcolor
 
   func main() {
     h := gtc.NewColorString("hello world")
-    h.SetMode(gtc.DIM)
+    // 下划线
+    h.SetMode(gtc.UNDER_LINE)
+    // 设置背景颜色
     h.SetBackColor(gtc.BLACK)
+    // 设置前景颜色
     h.SetForeColor(gtc.GREEN)
     fmt.Println(h.ToString())
 
     b := gtc.NewColorString("hua er")
     // 重用属性设置
     b.SetStrAttr(h.GetStrAttr())
+    // 设置前景颜色
     b.SetForeColorRGB(255, 255, 255)
     fmt.Println(b.ToString())
 
