@@ -48,20 +48,24 @@ func (this *StrAttr) SetMode(attr Mode) {
 	this.attr = string(attr)
 }
 
-func (this *StrAttr) SetForeColorRGB(r, g, b int) {
+func (this *StrAttr) SetForeColorRGB(r, g, b int) *StrAttr {
 	this.forecolor = fmt.Sprintf("38;2;%d;%d;%d", r, g, b)
+	return this
 }
 
-func (this *StrAttr) SetForeColor(c Color) {
+func (this *StrAttr) SetForeColor(c Color) *StrAttr {
 	this.forecolor = fmt.Sprintf("3%v", c)
+	return this
 }
 
-func (this *StrAttr) SetBackColorRGB(r, g, b int) {
+func (this *StrAttr) SetBackColorRGB(r, g, b int) *StrAttr {
 	this.backcolor = fmt.Sprintf("48;2;%d;%d;%d", r, g, b)
+	return this
 }
 
-func (this *StrAttr) SetBackColor(c Color) {
+func (this *StrAttr) SetBackColor(c Color) *StrAttr {
 	this.backcolor = fmt.Sprintf("4%d", c)
+	return this
 }
 
 func (this *StrAttr) ToString() string {
@@ -97,7 +101,7 @@ func (this *ColorString) GetStrAttr() StrAttr {
 	return this.StrAttr
 }
 
-func (this *ColorString) SetStrAttr(s StrAttr) ColorString {
+func (this *ColorString) SetStrAttr(s StrAttr) *ColorString {
 	this.StrAttr = s
-	return *this
+	return this
 }
