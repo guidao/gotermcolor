@@ -44,8 +44,9 @@ const (
 	WHITE
 )
 
-func (this *StrAttr) SetMode(attr Mode) {
+func (this *StrAttr) SetMode(attr Mode) *StrAttr {
 	this.attr = string(attr)
+	return this
 }
 
 func (this *StrAttr) SetForeColorRGB(r, g, b int) *StrAttr {
@@ -88,8 +89,8 @@ func (this *StrAttr) ToString() string {
 	return STR_BEGIN + buf.String()
 }
 
-func NewColorString(raw string) ColorString {
-	return ColorString{
+func NewColorString(raw string) *ColorString {
+	return &ColorString{
 		rawStr: raw,
 	}
 }
@@ -103,5 +104,30 @@ func (this *ColorString) GetStrAttr() StrAttr {
 
 func (this *ColorString) SetStrAttr(s StrAttr) *ColorString {
 	this.StrAttr = s
+	return this
+}
+
+func (this *ColorString) SetMode(attr Mode) *ColorString {
+	this.StrAttr.SetMode(attr)
+	return this
+}
+
+func (this *ColorString) SetForeColorRGB(r, g, b int) *ColorString {
+	this.StrAttr.SetForeColorRGB(r, g, b)
+	return this
+}
+
+func (this *ColorString) SetForeColor(c Color) *ColorString {
+	this.StrAttr.SetForeColor(c)
+	return this
+}
+
+func (this *ColorString) SetBackColorRGB(r, g, b int) *ColorString {
+	this.StrAttr.SetBackColorRGB(r, g, b)
+	return this
+}
+
+func (this *ColorString) SetBackColor(c Color) *ColorString {
+	this.StrAttr.SetBackColor(c)
 	return this
 }
