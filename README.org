@@ -7,7 +7,7 @@ go get -u github.com/guidao/gotermcolor
 
   import (
     "fmt"
-    gtc "gotermcolor"
+    gtc "github.com/guidao/gotermcolor"
   )
 
   func main() {
